@@ -64,6 +64,32 @@ ul {
 }
 
 a {
+  padding: 0;
+  border: 0;
+  color: transparent;
+  background: transparent;
+  outline: none;
+  text-decoration: none;
+}
+
+a:hover {
+  color: transparent;
+  background: transparent;
+  outline: none;
+  text-decoration: none;
+}
+
+a:active {
+  color: transparent;
+  background: transparent;
+  outline: none;
+  text-decoration: none;
+}
+
+a:focus {
+  color: transparent;
+  background: transparent;
+  outline: none;
   text-decoration: none;
 }
 
@@ -71,7 +97,26 @@ button {
   padding: 0;
   border: 0;
   background: transparent;
+  outline: none;
   cursor: pointer;
+}
+
+button:hover {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+button:active {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+button:focus {
+  border: none;
+  background: none;
+  outline: none;
 }
 
 .header {
@@ -135,6 +180,7 @@ button {
 }
 
 .header__link:hover {
+  color: var(--white);
   text-decoration: underline;
 }
 
@@ -232,6 +278,23 @@ button {
 
 .aboutus__intro__button:hover {
   text-decoration: underline;
+}
+
+.aboutus__readmore__title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--grey3);
+}
+
+.aboutus__readmore__desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--grey3);
 }
 
 .news__container {
@@ -362,9 +425,29 @@ button {
   background-position: center;
 }
 
-.footer {
-  position: sticky;
-  bottom: 0;
+.news__readmore__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.news__readmore__title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--grey3);
+}
+
+.news__readmore__desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--grey3);
 }
 
 .footer__container {
@@ -451,7 +534,7 @@ button {
   }
 
   .aboutus__intro__button {
-    width: 82px;
+    width: 84px;
     font-size: 12px;
   }
 
