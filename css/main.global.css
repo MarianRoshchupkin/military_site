@@ -1,12 +1,4 @@
 @font-face {
-  font-family: "Roboto";
-  src: local("Roboto-Regular"), url("../assets/fonts/Roboto-Regular.woff2") format("woff2"), url("../assets/fonts/Roboto-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "TT Firs Neue";
   src: local("TTFirsNeue-Regular"), url("../assets/fonts/TTFirsNeue-Regular.woff2") format("woff2"), url("../assets/fonts/TTFirsNeue-Regular.woff") format("woff");
   font-weight: 400;
@@ -54,7 +46,7 @@
 
 body {
   margin: 0;
-  font-family: 'Roboto', serif;
+  font-family: 'TT Firs Neue', serif;
   color: var(--black);
   background-color: var(--white);
 }
@@ -82,20 +74,22 @@ button {
   cursor: pointer;
 }
 
-/****************************** HEADER SECTION ******************************/
-.header__container {
+.header {
   position: sticky;
   top: 0;
+  z-index: var(--zindex-sticky);
+}
+
+.header__container {
   width: 100%;
   background-color: rgba(14, 14 , 16, .8);
-  z-index: var(--zindex-sticky);
 }
 
 .header__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px 10px 50px;
+  padding: 20px 50px;
   margin: 0 auto;
   width: 100%;
   max-width: 1440px;
@@ -108,8 +102,8 @@ button {
 }
 
 .header__logo__link {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
 }
 
 .header__logo__image {
@@ -121,8 +115,7 @@ button {
 }
 
 .header__logo__desc {
-  font-family: 'TT Firs Neue', sans-serif;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 400;
   color: var(--white);
   transition: all .3s ease;
@@ -135,7 +128,6 @@ button {
 }
 
 .header__link {
-  font-family: 'TT Firs Neue', sans-serif;
   font-size: 24px;
   font-weight: 400;
   color: var(--white);
@@ -146,7 +138,6 @@ button {
   text-decoration: underline;
 }
 
-/****************************** ABOUT US SECTION ******************************/
 .aboutus__container {
   width: 100%;
   background-color: rgb(242, 243, 244);
@@ -163,23 +154,60 @@ button {
 }
 
 .aboutus__slider {
+  position: relative;
+  display: flex;
+  align-items: center;
   grid-column: 1;
   grid-row: 1;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
-.aboutus__slider__image {
-  width: 700px;
+.aboutus__slider__container {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.aboutus__slider__slide {
+  display: flex;
+  width: 100%;
+  min-width: 100%;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.aboutus__slider__prev,
+.aboutus__slider__next {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  color: var(--white);
+  background-color: rgba(0, 0, 0, .6);
+  cursor: pointer;
+  z-index: var(--zindex-fixed);
+}
+
+.aboutus__slider__prev:hover,
+.aboutus__slider__next:hover {
+  background-color: rgb(0, 0, 0);
 }
 
 .aboutus__intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   grid-column: 2;
   grid-row: 1;
 }
 
 .aboutus__intro__desc {
   display: -webkit-box;
-  margin: 0 0 20px 0;
-  font-family: 'TT Firs Neue', sans-serif;
+  margin: 0 0 16px 0;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -195,15 +223,19 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'TT Firs Neue', sans-serif;
+  width: 112px;
   font-size: 16px;
   font-weight: 700;
   line-height: 30px;
   color: var(--grey3);
 }
 
-/****************************** NEWS SECTION ******************************/
+.aboutus__intro__button:hover {
+  text-decoration: underline;
+}
+
 .news__container {
+  padding: 0 50px;
   width: 100%;
   background-color: var(--white);
 }
@@ -213,44 +245,37 @@ button {
   justify-content: space-between;
   align-items: center;
   gap: 50px;
-  padding: 100px 50px;
+  padding: 100px 0;
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 1340px;
+  overflow: hidden;
 }
 
-.news__block {
-  position: relative;
+.news__slider {
   display: flex;
-  flex-direction: column;
-  width: 500px;
-  height: 600px;
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.25);
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  transition: transform 0.5s ease-in-out;
 }
 
-.news__image {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  height: 300px;
-  background-image: url('../assets/images/slide1.jpeg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.news__slide {
+  display: flex;
+  min-width: 100%;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .news__content {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 0 25px 36px 24px;
-  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 36px 24px;
+  margin: 0 50px 0 0;
+  border: 1px solid #999;
 }
 
 .news__content__title {
-  margin: 0 0 19px 0;
+  margin: 0 0 10px 0;
   font-size: 18px;
   font-weight: 700;
   line-height: 23px;
@@ -261,39 +286,87 @@ button {
 }
 
 .news__content__desc {
-  margin: 0;
-  height: 200px;
-  font-size: 13px;
+  display: -webkit-box;
+  margin: 0 0 16px 0;
+  font-size: 14px;
   font-weight: 400;
   line-height: 17px;
   color: var(--secondary1);
-  text-overflow: ellipsis;
+  max-height: 100%;
   overflow: hidden;
-  white-space: nowrap;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
 }
 
-.news__content__button {
+.news__content__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto 0 0 0;
+}
+
+.news__content__readmore {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 40px;
-  width: 100%;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 30px;
+  color: var(--grey3);
+}
+
+.news__content__readmore:hover {
+  text-decoration: underline;
+}
+
+.news__content__buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 140px;
+}
+
+.news__content__prev,
+.news__content__next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  color: var(--white);
+  background-color: rgba(0, 0, 0, .6);
+  cursor: pointer;
+  z-index: var(--zindex-fixed);
+}
+
+.news__content__prev:hover,
+.news__content__next:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+.news__content__counts {
+  font-family: "TT Firs Neue", sans-serif;
+  font-size: 16px;
   font-weight: 400;
   line-height: 17px;
-  color: var(--white);
-  background-color: rgba(14, 14, 16, .8);
-  outline: none;
-  transition: all .3s ease;
+  color: var(--secondary1);
 }
 
-.news__content__button:hover {
-  color: rgba(14, 14, 16, .8);
-  background-color: var(--white);
-  outline: 2px solid rgba(14, 14, 16, .8);
+.news__image {
+  width: 100%;
+  height: 300px;
+  background-image: url('../assets/images/slide1.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-/****************************** FOOTER SECTION ******************************/
+.footer {
+  position: sticky;
+  bottom: 0;
+}
+
 .footer__container {
   width: 100%;
   background-color: rgba(51, 51 , 51);
@@ -303,7 +376,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 50px;
+  padding: 20px 50px;
   margin: 0 auto;
   width: 100%;
   max-width: 1440px;
@@ -316,8 +389,8 @@ button {
 }
 
 .footer__logo__link {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
 }
 
 .footer__logo__image {
@@ -329,16 +402,128 @@ button {
 }
 
 .footer__logo__desc {
-  font-family: 'TT Firs Neue', sans-serif;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 400;
   color: var(--white);
   transition: all .3s ease;
 }
 
 .footer__contacts {
-  font-family: 'TT Firs Neue', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   color: var(--white);
+}
+
+/****************************** 1200px ******************************/
+@media (max-width: 1200px) {
+  .aboutus__intro__desc {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+/****************************** 992px ******************************/
+@media (max-width: 992px) {
+  .header__wrapper {
+    padding: 20px;
+  }
+
+  .header__logo__link {
+    width: 50px;
+    height: 50px;
+  }
+
+  .header__logo__desc {
+    font-size: 16px;
+  }
+
+  .header__link {
+    font-size: 16px;
+  }
+
+  .aboutus__wrapper {
+    padding: 50px 20px;
+  }
+
+  .aboutus__intro__desc {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .aboutus__intro__button {
+    width: 82px;
+    font-size: 12px;
+  }
+
+  .aboutus__slider__prev,
+  .aboutus__slider__next {
+    width: 30px;
+    height: 30px;
+  }
+
+  .news__container {
+    padding: 0;
+  }
+
+  .news__wrapper {
+    gap: 20px;
+    padding: 0;
+    margin: 50px 20px;
+  }
+
+  .news__block {
+    height: 480px;
+  }
+
+  .news__image {
+    height: 200px;
+  }
+
+  .news__content {
+    padding: 20px;
+  }
+
+  .news__content__desc {
+    font-size: 12px;
+    -webkit-line-clamp: 5;
+  }
+
+  .news__content__readmore {
+    font-size: 12px;
+  }
+
+  .news__content__buttons {
+    width: 100px;
+  }
+
+  .news__content__prev,
+  .news__content__next {
+    width: 30px;
+    height: 30px;
+  }
+
+  .news__content__counts {
+    font-size: 12px;
+  }
+
+  .footer__wrapper {
+    padding: 20px;
+  }
+
+  .footer__logo_link {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer__logo__desc {
+    font-size: 16px;
+  }
+
+  .footer__contacts {
+    font-size: 12px;
+  }
+}
+
+/****************************** 768px ******************************/
+@media (max-width: 768px) {
 }
